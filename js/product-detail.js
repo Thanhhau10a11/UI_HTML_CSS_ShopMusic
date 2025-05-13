@@ -19,10 +19,20 @@ function decreaseQuantity() {
 // Xử lý thêm vào giỏ hàng
 function addToCart() {
     const productId = new URLSearchParams(window.location.search).get('id');
-    const quantity = document.getElementById('quantity').value;
-    
-    // Thêm vào giỏ hàng (trong thực tế sẽ gọi API)
-    alert(`Đã thêm ${quantity} sản phẩm vào giỏ hàng!`);
+    const quantity = parseInt(document.getElementById('quantity').value);
+    // Lấy thông tin sản phẩm từ DOM
+    const name = document.querySelector('.product-detail h1').textContent;
+    const price = parseInt(document.querySelector('.product-detail h2').textContent.replace(/[^\d]/g, ''));
+    const image = document.querySelector('.main-image img').src;
+    const product = {
+        id: productId,
+        name: name,
+        price: price,
+        image: image
+    };
+    // Sử dụng class Cart để thêm sản phẩm với số lượng đúng
+    const cart = new Cart();
+    cart.addItem(product, quantity);
 }
 
 // Xử lý thêm vào danh sách yêu thích
@@ -245,13 +255,51 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Cập nhật danh sách đánh giá
     updateReviewsList();
-});
 
-// Hàm mua ngay
-function buyNow() {
-    const productId = new URLSearchParams(window.location.search).get('id');
-    const quantity = document.getElementById('quantity').value;
-    
-    // Chuyển đến trang thanh toán (trong thực tế sẽ thêm sản phẩm vào giỏ hàng trước)
-    window.location.href = `checkout.html?product=${productId}&quantity=${quantity}`;
-} 
+    // Initialize cart
+    const cart = new Cart();
+
+    // Quantity controls
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        const currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        const currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    }
+
+    // Add to cart
+    function addToCart() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const product = {
+            id: productId,
+            name: document.querySelector('.product-detail h1').textContent,
+            price: parseInt(document.querySelector('.product-detail h2').textContent.replace(/[^\d]/g, '')),
+            image: document.querySelector('.main-image img').src,
+            quantity: quantity
+        };
+
+        // Add to cart multiple times based on quantity
+        for (let i = 0; i < quantity; i++) {
+            cart.addItem(product);
+        }
+    }
+
+    // Buy now
+    function buyNow() {
+        addToCart();
+        window.location.href = 'cart.html';
+    }
+
+    // Make functions globally available
+    window.decreaseQuantity = decreaseQuantity;
+    window.increaseQuantity = increaseQuantity;
+    window.addToCart = addToCart;
+    window.buyNow = buyNow;
+}); 
