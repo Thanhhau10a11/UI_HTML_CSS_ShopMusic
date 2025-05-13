@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - Music Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="Music Store Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="products.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="order-history.html">Lịch sử đơn hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Đánh giá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="policy.html">Chính sách</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <form class="search-form me-3" action="search-results.html" method="GET">
+                            <div class="input-group">
+                                <input type="search" class="form-control" name="q" placeholder="Tìm kiếm sản phẩm..." required>
+                                <button class="btn btn-outline-primary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <a href="cart.html" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-shopping-cart"></i> 
+                            <span class="cart-count">0</span>
+                        </a>
+                        <a href="login.html" class="btn btn-primary">Đăng nhập</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h2>Sản phẩm</h2>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-end">
+                        <select class="form-select me-2" style="width: auto;">
+                            <option>Sắp xếp theo</option>
+                            <option>Giá tăng dần</option>
+                            <option>Giá giảm dần</option>
+                            <option>Tên A-Z</option>
+                        </select>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary active">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=1">
+                            <img src="images/piano.jpg" alt="Guitar 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Guitar Acoustic Yamaha F310</h5>
+                                <p class="card-text">Guitar acoustic chất lượng cao, phù hợp cho người mới bắt đầu.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">3.500.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="1">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=2">
+                            <img src="images/piano.jpg" alt="Piano 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Piano Điện Yamaha P-45</h5>
+                                <p class="card-text">Piano điện với âm thanh chân thực, phù hợp cho học tập và biểu diễn.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">15.000.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="2">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=3">
+                            <img src="images/piano.jpg" alt="Drum 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Trống Pearl Export</h5>
+                                <p class="card-text">Bộ trống chất lượng cao, phù hợp cho biểu diễn chuyên nghiệp.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">25.000.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="3">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Product 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=1">
+                            <img src="images/piano.jpg" alt="Guitar 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Guitar Acoustic Yamaha F310</h5>
+                                <p class="card-text">Guitar acoustic chất lượng cao, phù hợp cho người mới bắt đầu.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">3.500.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="1">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=2">
+                            <img src="images/piano.jpg" alt="Piano 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Piano Điện Yamaha P-45</h5>
+                                <p class="card-text">Piano điện với âm thanh chân thực, phù hợp cho học tập và biểu diễn.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">15.000.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="2">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=3">
+                            <img src="images/piano.jpg" alt="Drum 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Trống Pearl Export</h5>
+                                <p class="card-text">Bộ trống chất lượng cao, phù hợp cho biểu diễn chuyên nghiệp.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">25.000.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="3">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Product 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=1">
+                            <img src="images/piano.jpg" alt="Guitar 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Guitar Acoustic Yamaha F310</h5>
+                                <p class="card-text">Guitar acoustic chất lượng cao, phù hợp cho người mới bắt đầu.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">3.500.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="1">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=2">
+                            <img src="images/piano.jpg" alt="Piano 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Piano Điện Yamaha P-45</h5>
+                                <p class="card-text">Piano điện với âm thanh chân thực, phù hợp cho học tập và biểu diễn.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">15.000.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="2">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <a href="product-detail.html?id=3">
+                            <img src="images/piano.jpg" alt="Drum 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Trống Pearl Export</h5>
+                                <p class="card-text">Bộ trống chất lượng cao, phù hợp cho biểu diễn chuyên nghiệp.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">25.000.000đ</span>
+                                    <button class="btn btn-primary add-to-cart" data-product-id="3">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Trước</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Sau</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Về chúng tôi</h5>
+                    <p>Music Store - Địa chỉ tin cậy cho các nhạc cụ chất lượng cao.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Trang chủ</a></li>
+                        <li><a href="products.html" class="text-light">Sản phẩm</a></li>
+                        <li><a href="about.html" class="text-light">Giới thiệu</a></li>
+                        <li><a href="contact.html" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên hệ</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ<br>
+                        <i class="fas fa-phone"></i> (012) 345-6789<br>
+                        <i class="fas fa-envelope"></i> info@musicstore.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html> 

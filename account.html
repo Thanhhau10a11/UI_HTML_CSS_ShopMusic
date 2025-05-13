@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản - Music Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="Music Store Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="cart.html" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-shopping-cart"></i> 
+                            <span class="cart-count">0</span>
+                        </a>
+                        <a href="login.html" class="btn btn-primary">Đăng nhập</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Account Section -->
+    <section class="account py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <img src="images/staff.png" alt="Avatar" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+                                <h5 class="mb-1">Nguyễn Văn A</h5>
+                                <p class="text-muted mb-0">Thành viên từ: 01/01/2024</p>
+                            </div>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#profile" data-bs-toggle="tab">
+                                        <i class="fas fa-user me-2"></i> Thông tin cá nhân
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#orders" data-bs-toggle="tab">
+                                        <i class="fas fa-shopping-bag me-2"></i> Đơn hàng
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#wishlist" data-bs-toggle="tab">
+                                        <i class="fas fa-heart me-2"></i> Sản phẩm yêu thích
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#password" data-bs-toggle="tab">
+                                        <i class="fas fa-lock me-2"></i> Đổi mật khẩu
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#address" data-bs-toggle="tab">
+                                        <i class="fas fa-map-marker-alt me-2"></i> Địa chỉ
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger" href="#" onclick="logout()">
+                                        <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <!-- Profile Tab -->
+                        <div class="tab-pane fade show active" id="profile">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Thông tin cá nhân</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="profileForm" onsubmit="return updateProfile(event)">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Họ và tên</label>
+                                                <input type="text" class="form-control" value="Nguyễn Văn A" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" value="nguyenvana@example.com" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Số điện thoại</label>
+                                                <input type="tel" class="form-control" value="0123456789" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Ngày sinh</label>
+                                                <input type="date" class="form-control" value="1990-01-01">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Giới tính</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                                                    <label class="form-check-label" for="male">Nam</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                                    <label class="form-check-label" for="female">Nữ</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                                                    <label class="form-check-label" for="other">Khác</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Orders Tab -->
+                        <div class="tab-pane fade" id="orders">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Đơn hàng của tôi</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã đơn hàng</th>
+                                                    <th>Ngày đặt</th>
+                                                    <th>Sản phẩm</th>
+                                                    <th>Tổng tiền</th>
+                                                    <th>Trạng thái</th>
+                                                    <th>Thao tác</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#12345</td>
+                                                    <td>15/03/2024</td>
+                                                    <td>Guitar Acoustic Yamaha F310</td>
+                                                    <td>3.500.000đ</td>
+                                                    <td><span class="badge bg-success">Đã giao hàng</span></td>
+                                                    <td>
+                                                        <a href="order-detail.html" class="btn btn-sm btn-primary">Xem chi tiết</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#12344</td>
+                                                    <td>10/03/2024</td>
+                                                    <td>Piano Yamaha P-45</td>
+                                                    <td>12.500.000đ</td>
+                                                    <td><span class="badge bg-warning">Đang giao hàng</span></td>
+                                                    <td>
+                                                        <a href="order-detail.html" class="btn btn-sm btn-primary">Xem chi tiết</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist Tab -->
+                        <div class="tab-pane fade" id="wishlist">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Sản phẩm yêu thích</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Wishlist Item 1 -->
+                                        <div class="col-md-4 mb-4">
+                                            <div class="product-card">
+                                                <img src="images/piano.jpg" alt="Guitar">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Guitar Acoustic Yamaha F310</h5>
+                                                    <p class="card-text">3.500.000đ</p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <button class="btn btn-primary add-to-cart" data-product-id="1">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </button>
+                                                        <button class="btn btn-danger remove-wishlist" data-product-id="1">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Wishlist Item 2 -->
+                                        <div class="col-md-4 mb-4">
+                                            <div class="product-card">
+                                                <img src="images/piano.jpg" alt="Piano">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Piano Yamaha P-45</h5>
+                                                    <p class="card-text">12.500.000đ</p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <button class="btn btn-primary add-to-cart" data-product-id="2">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </button>
+                                                        <button class="btn btn-danger remove-wishlist" data-product-id="2">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password Tab -->
+                        <div class="tab-pane fade" id="password">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Đổi mật khẩu</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="passwordForm" onsubmit="return changePassword(event)">
+                                        <div class="mb-3">
+                                            <label class="form-label">Mật khẩu hiện tại</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Mật khẩu mới</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Xác nhận mật khẩu mới</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Address Tab -->
+                        <div class="tab-pane fade" id="address">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Địa chỉ giao hàng</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="addressForm" onsubmit="return updateAddress(event)">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Họ và tên</label>
+                                                <input type="text" class="form-control" value="Nguyễn Văn A" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Số điện thoại</label>
+                                                <input type="tel" class="form-control" value="0123456789" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Địa chỉ</label>
+                                            <input type="text" class="form-control" value="123 Đường ABC, Quận XYZ" required>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="form-label">Tỉnh/Thành phố</label>
+                                                <select class="form-select" required>
+                                                    <option value="hcm" selected>TP. Hồ Chí Minh</option>
+                                                    <option value="hn">Hà Nội</option>
+                                                    <option value="dn">Đà Nẵng</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">Quận/Huyện</label>
+                                                <select class="form-select" required>
+                                                    <option value="1" selected>Quận 1</option>
+                                                    <option value="2">Quận 2</option>
+                                                    <option value="3">Quận 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">Phường/Xã</label>
+                                                <select class="form-select" required>
+                                                    <option value="1" selected>Phường 1</option>
+                                                    <option value="2">Phường 2</option>
+                                                    <option value="3">Phường 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="defaultAddress">
+                                                <label class="form-check-label" for="defaultAddress">
+                                                    Đặt làm địa chỉ mặc định
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Cập nhật địa chỉ</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Về chúng tôi</h5>
+                    <p>Music Store - Địa chỉ tin cậy cho các nhạc cụ chất lượng cao.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Trang chủ</a></li>
+                        <li><a href="products.html" class="text-light">Sản phẩm</a></li>
+                        <li><a href="about.html" class="text-light">Giới thiệu</a></li>
+                        <li><a href="contact.html" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên hệ</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ<br>
+                        <i class="fas fa-phone"></i> (012) 345-6789<br>
+                        <i class="fas fa-envelope"></i> info@musicstore.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/account.js"></script>
+</body>
+</html> 

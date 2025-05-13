@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - Music Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="Music Store Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="products.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <form class="search-form me-3" action="search-results.html" method="GET">
+                            <div class="input-group">
+                                <input type="search" class="form-control" name="q" placeholder="Tìm kiếm sản phẩm..." required>
+                                <button class="btn btn-outline-primary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <a href="cart.html" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-shopping-cart"></i> 
+                            <span class="cart-count">0</span>
+                        </a>
+                        <a href="login.html" class="btn btn-primary">Đăng nhập</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-md-6">
+                    <div class="product-images">
+                        <div class="main-image mb-3">
+                            <img src="images/piano.jpg" alt="Guitar" class="img-fluid rounded">
+                        </div>
+                        <div class="thumbnail-images d-flex gap-2">
+                            <img src="images/piano.jpg" alt="Thumbnail 1" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                            <img src="images/piano.jpg" alt="Thumbnail 2" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                            <img src="images/piano.jpg" alt="Thumbnail 3" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <h1 class="mb-3">Guitar Acoustic Yamaha F310</h1>
+                    <div class="rating mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <span class="ms-2">(4.5/5)</span>
+                        <a href="#reviews" class="ms-2">24 đánh giá</a>
+                    </div>
+                    <h2 class="text-primary mb-4">3.500.000đ</h2>
+                    
+                    <div class="product-description mb-4">
+                        <h5>Mô tả sản phẩm</h5>
+                        <p>Guitar Acoustic Yamaha F310 là một trong những cây đàn guitar acoustic phổ biến nhất của Yamaha, được thiết kế dành cho người mới bắt đầu và người chơi trung cấp.</p>
+                        <ul>
+                            <li>Thân đàn: Gỗ thông</li>
+                            <li>Mặt đàn: Gỗ thông</li>
+                            <li>Cần đàn: Gỗ nato</li>
+                            <li>Phím đàn: Gỗ hồng mộc</li>
+                            <li>Bảo hành: 12 tháng</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="quantity-selector mb-3">
+                            <label class="form-label">Số lượng:</label>
+                            <div class="input-group" style="width: 150px;">
+                                <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity()">-</button>
+                                <input type="number" class="form-control text-center" value="1" min="1" id="quantity">
+                                <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity()">+</button>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-lg" onclick="addToCart()">
+                                <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg" onclick="buyNow()">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="details-tab" data-bs-toggle="tab" href="#details" role="tab">Chi tiết sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="specs-tab" data-bs-toggle="tab" href="#specs" role="tab">Thông số kỹ thuật</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab">Đánh giá</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-4 border border-top-0 rounded-bottom">
+                        <div class="tab-pane fade show active" id="details" role="tabpanel">
+                            <h4>Chi tiết sản phẩm</h4>
+                            <p>Guitar Acoustic Yamaha F310 là một trong những cây đàn guitar acoustic phổ biến nhất của Yamaha, được thiết kế dành cho người mới bắt đầu và người chơi trung cấp.</p>
+                            <p>Với thiết kế cổ điển và âm thanh ấm áp, F310 là lựa chọn hoàn hảo cho những người mới bắt đầu học guitar. Đàn có độ bền cao và dễ chơi, phù hợp với nhiều phong cách âm nhạc khác nhau.</p>
+                        </div>
+                        <div class="tab-pane fade" id="specs" role="tabpanel">
+                            <h4>Thông số kỹ thuật</h4>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>Thương hiệu</th>
+                                        <td>Yamaha</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Model</th>
+                                        <td>F310</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Loại đàn</th>
+                                        <td>Acoustic</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Thân đàn</th>
+                                        <td>Gỗ thông</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mặt đàn</th>
+                                        <td>Gỗ thông</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cần đàn</th>
+                                        <td>Gỗ nato</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phím đàn</th>
+                                        <td>Gỗ hồng mộc</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bảo hành</th>
+                                        <td>12 tháng</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                            <h4>Đánh giá sản phẩm</h4>
+                            <div class="reviews-list">
+                                <!-- Review items will be loaded here -->
+                            </div>
+                            <a href="reviews.html" class="btn btn-outline-primary mt-3">Xem tất cả đánh giá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Về chúng tôi</h5>
+                    <p>Music Store - Địa chỉ tin cậy cho các nhạc cụ chất lượng cao.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Trang chủ</a></li>
+                        <li><a href="products.html" class="text-light">Sản phẩm</a></li>
+                        <li><a href="about.html" class="text-light">Giới thiệu</a></li>
+                        <li><a href="contact.html" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên hệ</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ<br>
+                        <i class="fas fa-phone"></i> (012) 345-6789<br>
+                        <i class="fas fa-envelope"></i> info@musicstore.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html> 
